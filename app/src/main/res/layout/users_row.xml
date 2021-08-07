@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        app:cardBackgroundColor="@color/purple_light"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/users_profile_row"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_8sdp"
+                android:src="@drawable/placeholder" />
+
+            <TextView
+                android:id="@+id/txt_name_profile_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik"
+                android:textColor="@color/white"
+                android:maxLines="1"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/users_profile_row"
+                android:layout_alignTop="@+id/users_profile_row"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                tools:text="Pouyan"/>
+
+            <TextView
+                android:id="@+id/txt_status_profile_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:layout_toEndOf="@+id/users_profile_row"
+                android:layout_alignTop="@+id/txt_name_profile_row"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                tools:text="Status"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
