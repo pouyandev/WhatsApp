@@ -1,19 +1,25 @@
 package com.example.whatsapp.Fragment
 
 import android.app.AlertDialog
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.whatsapp.Activity.ChatActivity
 import com.example.whatsapp.Activity.ProfileActivity
-import com.example.whatsapp.Adapter.UsersViewHolder
+import com.example.whatsapp.AdapterViewHolder.UsersViewHolder
 import com.example.whatsapp.Model.Users
 import com.example.whatsapp.R
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -23,10 +29,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
+import kotlinx.android.synthetic.main.bottom_sheet_view.*
 import kotlinx.android.synthetic.main.fragment_users.*
-import java.util.*
-import kotlin.collections.HashMap
 
 class UsersFragment : Fragment() {
     var mUserDatabase: DatabaseReference? = null
@@ -49,6 +53,36 @@ class UsersFragment : Fragment() {
 
 
     }
+    /*  private fun showAlertDialog(){
+          var options = arrayOf("Open Profile ", "Send Message")
+          var builder = AlertDialog.Builder(context)
+          builder.setTitle("Select Option")
+          builder.setItems(options,
+              DialogInterface.OnClickListener { dialogDialogInterface: DialogInterface?, i: Int ->
+                  var userName = holder.txt_name_profile_row
+                  var userStatus = holder.txt_status_profile_row
+                  var profilePic = holder.userProfilePicLink
+
+                  if (i == 0) {
+                      //Open Profile Activity
+
+                      var profileIntent = Intent(context, ProfileActivity::class.java)
+                      profileIntent.putExtra("userId",userId)
+                      context!!.startActivity(profileIntent)
+                  } else {
+                      //Open Chat Activity
+                      var chatIntent = Intent(context, ChatActivity::class.java)
+                      chatIntent.putExtra("userId",userId)
+                      chatIntent.putExtra("name",userName)
+                      chatIntent.putExtra("status",userStatus)
+                      chatIntent.putExtra("image",profilePic)
+                      context!!.startActivity(chatIntent)
+
+
+                  }
+              })
+          builder.show()
+      }*/
 
     private fun fetch() {
         var usersQuery = FirebaseDatabase.getInstance()
@@ -78,38 +112,24 @@ class UsersFragment : Fragment() {
                 }
 
                 protected override fun onBindViewHolder(
-                    holder: UsersViewHolder, position: Int, model: Users, ) {
-                    var userId=getRef(position).key
+                    holder: UsersViewHolder, position: Int, model: Users,
+                ) {
+                    var userId = getRef(position).key
                     holder.bindView(model)
                     holder.itemView.setOnClickListener {
-                        var options = arrayOf("Open Profile ", "Send Message")
-                        var builder = AlertDialog.Builder(context)
-                        builder.setTitle("Select Option")
-                        builder.setItems(options,
-                            DialogInterface.OnClickListener { dialogDialogInterface: DialogInterface?, i: Int ->
-                                var userName = holder.txt_name_profile_row
-                                var userStatus = holder.txt_status_profile_row
-                                var profilePic = holder.userProfilePicLink
 
-                                if (i == 0) {
-                                    //Open Profile Activity
+                            var chatIntent = Intent(context, ChatActivity::class.java)
+                            var userName = holder.txt_name_profile_row
+                            var userStatus = holder.txt_status_profile_row
+                            var profilePic = holder.userProfilePicLink
 
-                                    var profileIntent = Intent(context, ProfileActivity::class.java)
-                                    profileIntent.putExtra("userId",userId)
-                                    context!!.startActivity(profileIntent)
-                                } else {
-                                    //Open Chat Activity
-                                    var chatIntent = Intent(context, ChatActivity::class.java)
-                                    chatIntent.putExtra("userId",userId)
-                                    chatIntent.putExtra("name",userName)
-                                    chatIntent.putExtra("status",userStatus)
-                                    chatIntent.putExtra("image",profilePic)
-                                    context!!.startActivity(chatIntent)
+                            chatIntent.putExtra("userId",userId)
+                            chatIntent.putExtra("name",userName)
+                            chatIntent.putExtra("status",userStatus)
+                            chatIntent.putExtra("image",profilePic)
+                            context!!.startActivity(chatIntent)
 
 
-                                }
-                            })
-                        builder.show()
                     }
                 }
 

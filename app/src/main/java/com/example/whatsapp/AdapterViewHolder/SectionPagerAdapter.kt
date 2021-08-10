@@ -1,11 +1,10 @@
-package com.example.whatsapp.Adapter
+package com.example.whatsapp.AdapterViewHolder
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.whatsapp.Fragment.ChatsFragment
 import com.example.whatsapp.Fragment.UsersFragment
-import com.example.whatsapp.R
 
 
 class SectionPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

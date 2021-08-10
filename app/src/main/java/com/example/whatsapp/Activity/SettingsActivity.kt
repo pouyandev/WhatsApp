@@ -62,10 +62,10 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
                 var status = snapshot.child("status").value
                 var thumb_image = snapshot.child("thumb_image").value
 
-                txt_name_settings.text = displayName.toString()
-                txt_status_settings.text = status.toString()
+                txt_name_settings_activity.text = displayName.toString()
+                txt_status_settings_activity.text = status.toString()
 
-                if (!image!!.equals("default")) {
+                if (image != "default") {
                     Picasso.get().load(image).placeholder(R.drawable.placeholder).into(img_profile_settings)
                 }
 
@@ -82,7 +82,7 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
         when (v!!.id) {
             btn_change_status_settings.id -> {
                 var statusIntent = Intent(this, StatusActivity::class.java)
-                statusIntent.putExtra(Constanse.STATUS, txt_status_settings.text.toString())
+                statusIntent.putExtra(Constanse.STATUS, txt_status_settings_activity.text.toString())
                 startActivity(statusIntent)
 
             }

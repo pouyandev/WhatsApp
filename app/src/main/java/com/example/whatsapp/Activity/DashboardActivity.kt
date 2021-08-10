@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
-import com.example.whatsapp.Adapter.SectionPagerAdapter
+import com.example.whatsapp.AdapterViewHolder.SectionPagerAdapter
 import com.example.whatsapp.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -18,8 +18,8 @@ class DashboardActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-        var intent = intent.extras
-        Toast.makeText(this, intent!!.getString("name").toString(), Toast.LENGTH_LONG).show()
+        var intent = intent.extras!!.getString("name").toString()
+        Toast.makeText(this, "Welcome $intent" , Toast.LENGTH_LONG).show()
         initViews()
         sectionAdapter = SectionPagerAdapter(supportFragmentManager)
         view_pager_dashboard.adapter = sectionAdapter
@@ -40,7 +40,7 @@ class DashboardActivity : AppCompatActivity(),
         }
     }
 
-    private fun showPopup(v:View) {
+    private fun showPopup(v: View) {
         val popup = PopupMenu(this, v)
         popup.setOnMenuItemClickListener {
             when (it.itemId) {

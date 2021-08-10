@@ -4,39 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-android:background="@color/purple_dark"
+    android:background="@color/purple_dark"
     tools:context=".Activity.ChatActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="match_parent"
+        android:id="@+id/root_to_profile_chat_activity"
+        android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_dark"
-        android:backgroundTint="@color/blue_light"
+        android:background="@color/blue_light"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_back_chat_activity"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/img_back_chat_activity"
-            android:layout_width="@dimen/_40sdp"
-            android:clickable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_13sdp"
-            android:src="@drawable/ic_left_arrow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_profile_chat_activity"
             android:layout_width="@dimen/_40sdp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_5sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_3sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_back_chat_activity"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/placeholder" />
 
@@ -44,13 +35,12 @@ android:background="@color/purple_dark"
             android:id="@+id/txt_name_chat_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_6sdp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
-            android:fontFamily="@font/rubik"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_profile_chat_activity"
             app:layout_constraintTop_toTopOf="parent"
@@ -61,28 +51,38 @@ android:background="@color/purple_dark"
             android:id="@+id/txt_time_chat_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2 minutes ago"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
+            android:text="2 minutes ago"
             android:textColor="@color/white"
-            android:fontFamily="@font/rubik"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:layout_marginStart="@dimen/_8sdp"
             app:layout_constraintStart_toEndOf="@+id/img_profile_chat_activity"
             app:layout_constraintTop_toBottomOf="@+id/txt_name_chat_activity" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/img_back_chat_activity"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_light"
+        android:padding="@dimen/_13sdp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcl_chat_activity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/root_to_profile_chat_activity" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -98,12 +98,12 @@ android:background="@color/purple_dark"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:backgroundTint="@color/blue_light"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackgroundBorderless"
-android:src="@drawable/ic_send_message"
+            android:src="@drawable/ic_send_message"
             app:fabCustomSize="@dimen/_40sdp"
 
             />
@@ -113,6 +113,8 @@ android:src="@drawable/ic_send_message"
             android:layout_height="@dimen/_40sdp"
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_toStartOf="@+id/fab_chat_activity"
             android:background="@drawable/back_send_message"
             android:orientation="horizontal">
@@ -122,7 +124,6 @@ android:src="@drawable/ic_send_message"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/rubik"
                 android:hint="Send Message"
                 android:padding="@dimen/_7sdp"
                 android:textColor="@color/white"

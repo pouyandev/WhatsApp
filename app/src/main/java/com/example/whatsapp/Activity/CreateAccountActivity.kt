@@ -41,16 +41,16 @@ class CreateAccountActivity : AppCompatActivity(), View.OnClickListener {
                     mDatabase = FirebaseDatabase.getInstance().reference
                         .child("Users").child(userId)
 
-                    var userObjects = HashMap<String, String>()
+                    var userObjects = HashMap<String, Any>()
                     userObjects.put("display_name", displayName)
                     userObjects.put("status", "Hey there i am using HiApp ")
                     userObjects.put("image", "default")
                     userObjects.put("thumb_image", "default")
-                    // TODO: 7/27/2021 تغییر
+                    userObjects.put("online", false)
+
 
                     mDatabase!!.setValue(userObjects).addOnCompleteListener { task: Task<Void> ->
                         if (task.isSuccessful) {
-                            //Toast.makeText(this, " ***** User Created ***** ", Toast.LENGTH_LONG).show()
                             var dashboardIntent = Intent(this, DashboardActivity::class.java)
                             dashboardIntent.putExtra("name",displayName)
                             startActivity(dashboardIntent)

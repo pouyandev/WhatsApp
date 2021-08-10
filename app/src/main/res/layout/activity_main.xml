@@ -56,7 +56,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_31sdp"
-        android:fontFamily="@font/rubik"
         android:gravity="center_horizontal"
         android:padding="@dimen/_3sdp"
         android:text="@string/welcome"
@@ -73,10 +72,9 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_40sdp"
-        android:background="@drawable/back_btn"
+        android:background="@drawable/back_btn2"
         android:text="ALREADY HAVE AN ACCOUNT"
         android:textColor="@color/white"
-        android:fontFamily="@font/rubik"
         app:layout_constraintTop_toBottomOf="@+id/txt_welcome"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -84,13 +82,12 @@
         android:id="@+id/btn_new_account"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_41sdp"
-        android:fontFamily="@font/rubik"
         android:textColor="@color/white"
         android:text=" CREATE A NEW ACCOUNT "
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/back_btn"
+        android:background="@drawable/back_btn2"
         app:layout_constraintTop_toBottomOf="@+id/btn_have_account"
         tools:layout_editor_absoluteX="35dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

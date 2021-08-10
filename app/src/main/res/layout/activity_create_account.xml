@@ -44,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:fontFamily="@font/rubik"
                 android:text="@string/create_account"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
@@ -65,7 +64,6 @@
                     android:id="@+id/edt_name_create"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik"
                     android:maxLines="1"
                     android:textColor="@color/white" />
 
@@ -87,7 +85,6 @@
                     android:id="@+id/edt_email_create"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik"
                     android:maxLines="1"
                     android:textColor="@color/white" />
 
@@ -109,7 +106,6 @@
                     android:id="@+id/edt_pass_create"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik"
                     android:maxLines="1"
                     android:inputType="textPassword"
                     android:textColor="@color/white" />
@@ -124,7 +120,6 @@
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:background="@drawable/back_btn2"
-                android:fontFamily="@font/rubik"
                 android:padding="@dimen/_13sdp"
                 android:text="@string/create_account"
                 android:textColor="@color/white" />

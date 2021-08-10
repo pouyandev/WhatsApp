@@ -43,7 +43,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:fontFamily="@font/rubik"
                 android:text="Login"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14ssp" />
@@ -65,7 +64,6 @@
                     android:id="@+id/edt_email_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik"
                     android:maxLines="1"
                     android:textColor="@color/white" />
 
@@ -87,7 +85,6 @@
                     android:id="@+id/edt_pass_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/rubik"
                     android:maxLines="1"
                     android:inputType="textPassword"
                     android:textColor="@color/white" />
@@ -102,7 +99,6 @@
                 android:padding="@dimen/_13sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
-                android:fontFamily="@font/rubik"
                 android:background="@drawable/back_btn2"
                 android:text="Login"
                 android:textColor="@color/white" />
